@@ -1,0 +1,60 @@
+/* 
+    Document   : style
+    Created on : 18.10.2014., 10:19:03
+    Author     : Kruno
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+body{
+    background-color: #EEEEEE;
+
+
+}
+.container{
+
+    margin-left:  auto;
+    margin-right:  auto;
+    width: 413px;
+    font-family: Arial;
+    padding: auto auto;
+}
+.admin_container{
+
+    font-family: Arial;
+    width: 800px;
+    height: 420px;
+    background-color: activeborder;
+    float:left;
+    margin-left: 50px;
+    border: 1px solid black;
+
+
+}
+
+.navigation{
+    font-family: Arial;
+    background-color: activeborder;
+    width: 150px;
+    height: 400px;
+    padding-left: 20px;
+    padding-top: 20px;
+    float:left;
+    border: 1px solid black;
+
+
+}
+a:link, a:visited{
+
+    text-decoration: none;
+    color: slategray;
+    border-bottom: 1px dotted slategray;
+}
+
+a:hover{
+
+    color:#444;
+    border-bottom: 1px dotted #444;
+}
+
+
