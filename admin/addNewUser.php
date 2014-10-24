@@ -92,13 +92,16 @@ if(isset($_SESSION['logged_in_admin'])){
                         && !empty($_POST['address']))
                 {
                     global $pdo;
-                    $query->$pdo->prepare("INSERT INTO mnarudzbe_korisnici (user, password, vrsta, email, naziv, adresa) VALUES (?, ?, ?, ?, ?, ?)");
+                    $query=$pdo->prepare("INSERT INTO mnarudzbe_korisnici (user, password, vrsta, email, naziv, adresa) VALUES (?, ?, ?, ?, ?, ?)");
                     $query->bindValue(1, $_POST['username']);
                     $query->bindValue(2, $_POST['password']);
                     $query->bindValue(3, $_POST['skupina']);
                     $query->bindValue(4, $_POST['email']);
                     $query->bindValue(5, $_POST['name']);
                     $query->bindValue(6, $_POST['address']);
+                    $query->execute();
+                    
+                    
                     
                     $notification="User is added!";
                 }
