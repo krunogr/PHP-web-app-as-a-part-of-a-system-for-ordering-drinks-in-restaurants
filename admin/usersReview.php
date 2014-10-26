@@ -20,10 +20,10 @@ if(isset($_SESSION['logged_in_admin'])){
         </div>
         <div class="admin_container">
             <form action="usersReview.php" method="get">
-            <table border="1" align="center">
+            <table align="center">
                 <tr style="height:50px">
-                    <td colspan="2">
-                        Users review
+                    <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
+                        USERS REVIEW
                     </td> 
                 </tr>
                 <tr>
@@ -37,16 +37,16 @@ if(isset($_SESSION['logged_in_admin'])){
                 <tr>
                     <td>Type</td>
                     <td>
-                        <select name="skupina">
-                        <option selected="selected" value="">--</option>
-                        <option value="korisnik">User</option>
-                        <option value="admin">Admin</option>
+                        <select name="skupina" >
+                        <option selected="selected" value="" >--</option>
+                        <option value="korisnik">user</option>
+                        <option value="admin">admin</option>
                         </select>
                     </td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <input type="submit" value="Search"/>
+                        <td colspan="2" style="text-align: center">
+                            <input type="submit" value="Search" style="margin-top: 20px; margin-bottom: 20px; "/>
                         </td>
                         
                     </tr>

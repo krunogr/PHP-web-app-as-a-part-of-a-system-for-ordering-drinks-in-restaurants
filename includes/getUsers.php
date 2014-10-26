@@ -27,8 +27,8 @@ class Users {
 }
 ?>
 
-<table border="1" align="center">
-    <tr>
+<table style="border: black solid 1px" align="center">
+    <tr style="font-weight: bold">
         <td>user ID</td>
         <td>username</td>
         <td>type</td>

@@ -8,6 +8,7 @@
 
 body{
     background-color: #EEEEEE;
+    margin: 20px 50px;
 
 
 }
@@ -23,7 +24,7 @@ body{
 
     font-family: Arial;
     width: 800px;
-    height: 420px;
+    min-height: 420px;
     background-color: activeborder;
     float:left;
     margin-left: 50px;

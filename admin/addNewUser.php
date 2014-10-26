@@ -20,10 +20,10 @@ if(isset($_SESSION['logged_in_admin'])){
         </div>
         <div class="admin_container">
             <form action="addNewUser.php" method="post">
-            <table border="1" align="center">
+            <table align="center">
                 <tr style="height:50px">
-                    <td colspan="2">
-                        Add a new user
+                    <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
+                        ADD A NEW USER
                     </td> 
                 </tr>
                 <tr>
@@ -31,7 +31,7 @@ if(isset($_SESSION['logged_in_admin'])){
                         Username
                     </td>
                     <td>
-                        <input type="text" name="username" placeholder="Username"/>
+                        <input type="text" name="username" placeholder="Username" required="true"/>
                     </td>
                 </tr>
                   <tr>
@@ -39,16 +39,16 @@ if(isset($_SESSION['logged_in_admin'])){
                         Password
                     </td>
                     <td>
-                        <input type="text" name="password" placeholder="Password"/>
+                        <input type="text" name="password" placeholder="Password" required="true"/>
                     </td>
                 </tr>
                 <tr>
                     <td>Type</td>
                     <td>
-                        <select name="skupina">
+                        <select name="skupina" required="true">
                         <option selected="selected" value="">--</option>
-                        <option value="korisnik">User</option>
-                        <option value="admin">Admin</option>
+                        <option value="korisnik">user</option>
+                        <option value="admin">admin</option>
                         </select>
                     </td>
                     </tr>
@@ -57,7 +57,7 @@ if(isset($_SESSION['logged_in_admin'])){
                         Email
                     </td>
                     <td>
-                        <input type="text" name="email" placeholder="Email"/>
+                        <input type="text" name="email" placeholder="Email" required="true"/>
                     </td>
                 </tr>
                   <tr>
@@ -65,7 +65,7 @@ if(isset($_SESSION['logged_in_admin'])){
                         Name
                     </td>
                     <td>
-                        <input type="text" name="name" placeholder="Name"/>
+                        <input type="text" name="name" placeholder="Name" required="true"/>
                     </td>
                 </tr>
                   <tr>
@@ -73,20 +73,20 @@ if(isset($_SESSION['logged_in_admin'])){
                         Address
                     </td>
                     <td>
-                        <input type="text" name="address" placeholder="Address"/>
+                        <input type="text" name="address" placeholder="Address" required="true"/>
                     </td>
                 </tr>
 
                     <tr>
-                        <td colspan="2">
-                            <input type="submit" value="Add user"/>
+                         <td colspan="2" style="text-align: center">
+                            <input type="submit" value="Add user" style="margin-top: 20px; margin-bottom: 20px; "/>
                         </td>
                         
                     </tr>
             </table> 
                 
                 <?php 
-                $notification;
+                $notification="";
                 if(!empty($_POST['username']) && !empty($_POST['password']) && 
                         !empty($_POST['skupina']) && !empty($_POST['email']) && !empty($_POST['name'])
                         && !empty($_POST['address']))
@@ -101,16 +101,13 @@ if(isset($_SESSION['logged_in_admin'])){
                     $query->bindValue(6, $_POST['address']);
                     $query->execute();
                     
-                    
-                    
                     $notification="User is added!";
                 }
-                else{
-                     $notification="All fields are required!";
-                }
+             
                 ?>
+                 <small style='margin-left: 325px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
                    </form>
-            <small style='color: red; font-family: Arial;'><?php echo $notification?></small>
+           
 
          
         </div>
