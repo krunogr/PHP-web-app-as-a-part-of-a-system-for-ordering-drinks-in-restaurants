@@ -24,61 +24,64 @@ if(isset($_SESSION['logged_in_user'])){
                         <a href="../logout.php">Logout<a>
         </div>
         <div class="admin_container">
-            <form action="ordersReview.php" method="post">
+            <form action="addArticle.php" method="post">
             <table align="center">
                 <tr style="height:50px">
                     <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
-                        NEW ORDERS
+                        ADD A NEW ARTICLE
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        User
+                        Name of article
                     </td>
                     <td>
-                        <input type="text" name="user" placeholder="User" required="true"/>
-                    </td>
-                </tr>
-                  <tr>
-                    <td>
-                        Date of
-                    </td>
-                    <td>
-                        <input type="text" name="date_of" placeholder="dd.MM.yyyy hh.mm.ss"/>
-                    </td>
-                </tr>
-               
-                  <tr>
-                    <td>
-                        Date to
-                    </td>
-                    <td>
-                        <input type="text" name="date_to" placeholder="dd.MM.yyyy hh.mm.ss"/>
+                        <input type="text" name="name_of_article" placeholder="Name of article" required="true"/>
                     </td>
                 </tr>
                 <tr>
+                    <td>Type of article</td>
+                    <td>
+                        <select name="type" required="true" site="50">
+                        <option selected="selected" value="Bezalkoloholna pica">Bezalkoloholna pica</option>
+                        <option value="Topli napici">Topli napici</option>
+                        <option value="Zestoka pica">Zestoka pica</option>
+                        <option value="Topli napici">Topli napici</option>
+                        </select>
+                    </td>
+                    </tr>
+                  <tr>
+                    <td>
+                        Price of article
+                    </td>
+                    <td>
+                        <input type="text" name="price_of_article" placeholder="Price of article" required="true"/>
+                    </td>
+                </tr>
+                    <tr>
                          <td colspan="2" style="text-align: center">
-                            <input type="submit" value="Search" style="margin-top: 20px; margin-bottom: 20px; "/>
+                            <input type="submit" value="Add article" style="margin-top: 20px; margin-bottom: 20px; "/>
                         </td>
                         
                     </tr>
             </table> 
                 
-               <?php 
-                        $notification="";
-                        if(isset($_POST['user'])){
-                        if(((!empty($_POST['user']) && empty($_POST['date_of']) &&
-                             empty($_POST['date_to']))|| (!empty($_POST['user']) && !empty($_POST['date_of']) &&
-                             !empty($_POST['date_to']))))
-                          {
-                                include_once '../includes/getOrders.php';
-                          }
-                          else{
-                                 $notification = "Please, insert only username or username, date of and date to!";
-                          }
-               }
+                <?php 
+                $notification="";
+                if(isset($_POST['name_of_article']))
+                {
+                    global $pdo;
+                    $query=$pdo->prepare("INSERT INTO mnarudzbe_".$_SESSION['logged_in_user']."_artikli (Naziv_Artikla, Skupina_Artikla, Cijena_Artikla) VALUES (?, ?, ?)");
+                    $query->bindValue(1, $_POST['name_of_article']);
+                    $query->bindValue(2, $_POST['type']);
+                    $query->bindValue(3, $_POST['price_of_article']);
+                    $query->execute();
+                    
+                    $notification="Article is added!";
+                }
+             
                 ?>
-         <small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
+                 <small style='margin-left: 325px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
                    </form>
            
 

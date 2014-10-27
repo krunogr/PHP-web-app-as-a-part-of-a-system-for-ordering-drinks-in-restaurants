@@ -24,36 +24,27 @@ if(isset($_SESSION['logged_in_user'])){
                         <a href="../logout.php">Logout<a>
         </div>
         <div class="admin_container">
-            <form action="ordersReview.php" method="post">
+            <form action="articlesReview.php" method="post">
             <table align="center">
                 <tr style="height:50px">
                     <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
-                        NEW ORDERS
+                        ARTICLES REVIEW
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        User
+                        ID of article
                     </td>
                     <td>
-                        <input type="text" name="user" placeholder="User" required="true"/>
+                        <input type="text" name="id_of_article" placeholder="ID of article"/>
                     </td>
                 </tr>
                   <tr>
                     <td>
-                        Date of
+                        Name of article
                     </td>
                     <td>
-                        <input type="text" name="date_of" placeholder="dd.MM.yyyy hh.mm.ss"/>
-                    </td>
-                </tr>
-               
-                  <tr>
-                    <td>
-                        Date to
-                    </td>
-                    <td>
-                        <input type="text" name="date_to" placeholder="dd.MM.yyyy hh.mm.ss"/>
+                        <input type="text" name="name_of_article" placeholder="Name of article"/>
                     </td>
                 </tr>
                 <tr>
@@ -66,16 +57,16 @@ if(isset($_SESSION['logged_in_user'])){
                 
                <?php 
                         $notification="";
-                        if(isset($_POST['user'])){
-                        if(((!empty($_POST['user']) && empty($_POST['date_of']) &&
-                             empty($_POST['date_to']))|| (!empty($_POST['user']) && !empty($_POST['date_of']) &&
-                             !empty($_POST['date_to']))))
+                        if(isset($_POST['id_of_article'])){
                           {
-                                include_once '../includes/getOrders.php';
+                            if(!empty($_POST['id_of_article']) || !empty($_POST['name_of_article'])){
+                                include_once '../includes/getArticles.php';   
+                            }
+                            else{
+                                $notification="Insert id or name of article!";
+                            }
                           }
-                          else{
-                                 $notification = "Please, insert only username or username, date of and date to!";
-                          }
+                          
                }
                 ?>
          <small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
