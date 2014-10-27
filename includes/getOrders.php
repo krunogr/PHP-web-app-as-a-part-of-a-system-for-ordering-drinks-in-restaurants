@@ -3,30 +3,20 @@
 class Orders {
 
     public function fetch() {
-        $notification = "";
-        if (isset($_POST['user'])) {
-            if (empty($_POST['user']) && empty($_POST['date_of']) &&
-                    empty($_POST['date_to'])) {
-                $notification = "For searching put some information!";
-            } else {
-                if (!empty($_POST['user']) && empty($_POST['date_of']) &&
-                        empty($_POST['date_to'])) {
-                    global $pdo;
-                    $query = $pdo->prepare("SELECT * FROM " . "mnarudzbe_" . $_POST["user"] . "_narudzbe");
-                    $query->execute();
-                    $notification = "";
-                } elseif (!empty($_POST['user']) && !empty($_POST['date_of']) &&
-                        !empty($_POST['date_to'])) {
-                    global $pdo;
-                    $query = $pdo->prepare("SELECT * FROM " . "mnarudzbe_" . $_POST["user"] . "_narudzbe" . "WHERE
-                        Vrijeme_zaprimanja_narudzbe > " . $_POST["date_of"] .
-                            " AND Vrijeme_zaprimanja_narudzbe < " . $_POST["date_to"]);
-
-                    $query->execute();
-                    $notification = "";
-                }
-                return $query->fetchAll();
-            }
+        if (!empty($_POST['user']) && empty($_POST['date_of']) &&
+                empty($_POST['date_to'])) {
+            global $pdo;
+            $query = $pdo->prepare("SELECT * FROM " . "mnarudzbe_" . $_POST["user"] . "_narudzbe");
+            $query->execute();
+            return $query->fetchAll();
+        } elseif (!empty($_POST['user']) && !empty($_POST['date_of']) &&
+                !empty($_POST['date_to'])) {
+            global $pdo;
+            $query = $pdo->prepare("SELECT * FROM " . "mnarudzbe_" . $_POST["user"] . "_narudzbe" .
+                    " WHERE Vrijeme_zaprimanja_narudzbe BETWEEN '" . $_POST["date_of"] .
+                    "' AND '" . $_POST["date_to"] . "'");
+            $query->execute();
+            return $query->fetchAll();
         }
     }
 
@@ -43,7 +33,6 @@ class Orders {
 
     <?php
     $orders = (new Orders())->fetch();
-    print_r($orders);
     foreach ($orders as $order) {
         ?>
         <tr>
@@ -56,5 +45,4 @@ class Orders {
 
     <?php }
     ?>
-
 </table>

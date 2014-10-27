@@ -22,8 +22,8 @@ if (isset($_SESSION['logged_in_user']) or isset($_SESSION['logged_in_admin'])) {
                     $_SESSION['logged_in_admin'] = true;
                     header('Location: ./admin/usersReview.php');
                 } else {
-                    $_SESSION['logged_in_user'] = true;
-                    header('Location: ./user/index.php');
+                    $_SESSION['logged_in_user'] = $username;
+                    header('Location: ./user/newOrders.php');
                 }
             } else {
                 $error = "Incorrect username or password!";
