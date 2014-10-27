@@ -28,32 +28,15 @@ if(isset($_SESSION['logged_in_user'])){
             <table align="center">
                 <tr style="height:50px">
                     <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
-                        NEW ORDERS
+                        ORDERS REVIEW
                     </td> 
                 </tr>
                 <tr>
                     <td>
-                        User
+                        ID order
                     </td>
                     <td>
-                        <input type="text" name="user" placeholder="User" required="true"/>
-                    </td>
-                </tr>
-                  <tr>
-                    <td>
-                        Date of
-                    </td>
-                    <td>
-                        <input type="text" name="date_of" placeholder="dd.MM.yyyy hh.mm.ss"/>
-                    </td>
-                </tr>
-               
-                  <tr>
-                    <td>
-                        Date to
-                    </td>
-                    <td>
-                        <input type="text" name="date_to" placeholder="dd.MM.yyyy hh.mm.ss"/>
+                        <input type="text" name="id" placeholder="id"/>
                     </td>
                 </tr>
                 <tr>
@@ -66,17 +49,12 @@ if(isset($_SESSION['logged_in_user'])){
                 
                <?php 
                         $notification="";
-                        if(isset($_POST['user'])){
-                        if(((!empty($_POST['user']) && empty($_POST['date_of']) &&
-                             empty($_POST['date_to']))|| (!empty($_POST['user']) && !empty($_POST['date_of']) &&
-                             !empty($_POST['date_to']))))
-                          {
-                                include_once '../includes/getOrders.php';
+                        if(isset($_POST['id'])){
+                            include_once '../includes/getOrdersUser.php';
+                         }
+                         else{
+                            $notification = "Please, insert only username or username, date of and date to!";
                           }
-                          else{
-                                 $notification = "Please, insert only username or username, date of and date to!";
-                          }
-               }
                 ?>
          <small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
                    </form>

@@ -24,41 +24,19 @@ if(isset($_SESSION['logged_in_user'])){
                         <a href="../logout.php">Logout<a>
         </div>
         <div class="admin_container">
-            <form action="ordersReview.php" method="post">
+            <form action="newOrders.php" method="post">
             <table align="center">
                 <tr style="height:50px">
-                    <td colspan="2"  style="text-align: center; font-weight: bold; font-size: 15px">
+                    <td colspan="3"  style="text-align: center; font-weight: bold; font-size: 15px">
                         NEW ORDERS
                     </td> 
                 </tr>
                 <tr>
-                    <td>
-                        User
-                    </td>
-                    <td>
-                        <input type="text" name="user" placeholder="User" required="true"/>
-                    </td>
-                </tr>
-                  <tr>
-                    <td>
-                        Date of
-                    </td>
-                    <td>
-                        <input type="text" name="date_of" placeholder="dd.MM.yyyy hh.mm.ss"/>
-                    </td>
-                </tr>
-               
-                  <tr>
-                    <td>
-                        Date to
-                    </td>
-                    <td>
-                        <input type="text" name="date_to" placeholder="dd.MM.yyyy hh.mm.ss"/>
-                    </td>
-                </tr>
-                <tr>
                          <td colspan="2" style="text-align: center">
-                            <input type="submit" value="Search" style="margin-top: 20px; margin-bottom: 20px; "/>
+                            <input type="submit" value="Serve the order" style="margin-top: 20px; margin-bottom: 20px; "/>
+                        </td>
+                        <td colspan="2" style="text-align: center">
+                            <input type="submit" value="Refresh the list" style="margin-top: 20px; margin-bottom: 20px; "/>
                         </td>
                         
                     </tr>
@@ -66,17 +44,8 @@ if(isset($_SESSION['logged_in_user'])){
                 
                <?php 
                         $notification="";
-                        if(isset($_POST['user'])){
-                        if(((!empty($_POST['user']) && empty($_POST['date_of']) &&
-                             empty($_POST['date_to']))|| (!empty($_POST['user']) && !empty($_POST['date_of']) &&
-                             !empty($_POST['date_to']))))
-                          {
-                                include_once '../includes/getOrders.php';
-                          }
-                          else{
-                                 $notification = "Please, insert only username or username, date of and date to!";
-                          }
-               }
+                        include_once '../includes/getOrdersNewUser.php';
+                     
                 ?>
          <small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
                    </form>
