@@ -22,30 +22,36 @@ class Orders {
     }
 
 }
-?>
-<table style="border-collapse: collapse; text-align: center" border="1" align="center">
-    <tr style="font-weight: bold">
-        <td>ID order</td>
-        <td>Order</td>
-        <td>ID place</td>
-        <td>Total</td>
-        <td>Time of ordering</td>
-        <td>Choose</td>
-    </tr>
 
-    <?php
-    $orders = (new Orders())->fetch();
-    foreach ($orders as $order) {
-        ?>
-        <tr>
-            <td><?php echo $order['ID_Narudzbe'] ?></td>
-            <td width="350px"><?php echo $order['Narudzba'] ?></td>
-            <td><?php echo $order['ID_Mjesta'] ?></td>
-            <td><?php echo $order['Racun_Narudzbe'] ?></td>
-            <td><?php echo $order['Vrijeme_zaprimanja_narudzbe'] ?></td>
-            <td> <input type="radio" id="ID_Narudzbe" name="select" value="<?php echo $order['ID_Narudzbe'] ?>"></input></td>
+$orders = (new Orders())->fetch();
+if (count($orders) > 0) {
+    ?>
+    <table style="border-collapse: collapse; text-align: center" border="1" align="center">
+        <tr style="font-weight: bold">
+            <td>ID order</td>
+            <td>Order</td>
+            <td>ID place</td>
+            <td>Total</td>
+            <td>Time of ordering</td>
+            <td>Choose</td>
         </tr>
-
+        <?php
+        $orders = (new Orders())->fetch();
+        foreach ($orders as $order) {
+            ?>
+            <tr>
+                <td><?php echo $order['ID_Narudzbe'] ?></td>
+                <td width="350px"><?php echo $order['Narudzba'] ?></td>
+                <td><?php echo $order['ID_Mjesta'] ?></td>
+                <td><?php echo $order['Racun_Narudzbe'] ?></td>
+                <td><?php echo $order['Vrijeme_zaprimanja_narudzbe'] ?></td>
+                <td> <input type="radio" id="ID_Narudzbe" name="select" value="<?php echo $order['ID_Narudzbe'] ?>"></input></td>
+            </tr>
     <?php }
     ?>
-</table>
+    </table>
+    <?php
+} else {
+    $notification = "No new orders!";
+}
+?>

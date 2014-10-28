@@ -17,9 +17,7 @@ class Users {
             $query = $pdo->prepare("SELECT ID_korisnika, user, vrsta, email, naziv, adresa FROM mnarudzbe_korisnici WHERE vrsta=?");
             $query->bindValue(1, $_GET['skupina']);
         }
-
         $query->execute();
-
         return $query->fetchAll();
     }
 
@@ -28,7 +26,6 @@ class Users {
 $users = (new Users)->fetch();
 if (count($users)) {
     ?>
-
     <table style="border-collapse: collapse; text-align: center" border="1" align="center">
         <tr style="font-weight: bold">
             <td>user ID</td>
@@ -38,10 +35,9 @@ if (count($users)) {
             <td>name</td>
             <td>address</td>
         </tr>
-
-        <?php
-        foreach ($users as $user) {
-            ?>
+    <?php
+    foreach ($users as $user) {
+        ?>
             <tr>
                 <td><?php echo $user['ID_korisnika'] ?></td>
                 <td><?php echo $user['user'] ?></td>
@@ -51,11 +47,10 @@ if (count($users)) {
                 <td><?php echo $user['adresa'] ?></td>
             </tr>
 
-        <?php }
-        ?>
-
+    <?php }
+    ?>
     </table>
-<?php
+    <?php
 } else {
     $notification = "No users for inputed data";
 }
