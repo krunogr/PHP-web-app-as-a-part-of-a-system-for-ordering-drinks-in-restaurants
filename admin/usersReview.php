@@ -37,7 +37,7 @@ if(isset($_SESSION['logged_in_admin'])){
                 <tr>
                     <td>Type</td>
                     <td>
-                        <select name="skupina" >
+                        <select name="skupina" style="width: 173px">
                         <option selected="selected" value="" >--</option>
                         <option value="korisnik">user</option>
                         <option value="admin">admin</option>
@@ -52,13 +52,17 @@ if(isset($_SESSION['logged_in_admin'])){
                     </tr>
             </table> 
                 
-                <?php if(isset($_GET['skupina']))
+                <?php 
+                $notification="";
+                if(isset($_GET['skupina']))
+                    
                 {
                     include_once '../includes/getUsers.php';
                 }
                 ?>
                    </form>
-
+<small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>
+                   </form>
          
         </div>
     </body>

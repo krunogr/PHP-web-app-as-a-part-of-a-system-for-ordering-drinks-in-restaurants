@@ -35,9 +35,6 @@ if(isset($_SESSION['logged_in_user'])){
                          <td colspan="2" style="text-align: center">
                             <input type="submit" value="Serve the order" style="margin-top: 20px; margin-bottom: 20px; "/>
                         </td>
-                        <td colspan="2" style="text-align: center">
-                            <input type="submit" value="Refresh the list" style="margin-top: 20px; margin-bottom: 20px; "/>
-                        </td>
                         
                     </tr>
             </table> 

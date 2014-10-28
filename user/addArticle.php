@@ -42,11 +42,11 @@ if(isset($_SESSION['logged_in_user'])){
                 <tr>
                     <td>Type of article</td>
                     <td>
-                        <select name="type" required="true" site="50">
+                        <select name="type" required="true" style="width: 173px">
                         <option selected="selected" value="Bezalkoloholna pica">Bezalkoloholna pica</option>
                         <option value="Topli napici">Topli napici</option>
                         <option value="Zestoka pica">Zestoka pica</option>
-                        <option value="Topli napici">Topli napici</option>
+                        <option value="Topli napici">Piva</option>
                         </select>
                     </td>
                     </tr>

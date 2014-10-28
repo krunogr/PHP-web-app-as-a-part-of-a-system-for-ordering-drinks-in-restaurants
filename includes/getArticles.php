@@ -27,7 +27,7 @@ class Articles {
 }
 ?>
 
-<table style="border: black solid 1px" align="center">
+<table style="border-collapse: collapse; text-align: center" border="1" align="center">
     <tr style="font-weight: bold">
         <td>Article ID</td>
         <td>Name</td>

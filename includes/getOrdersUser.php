@@ -18,7 +18,7 @@ class Orders {
     }
 }
 ?>
-<table style="border: black solid 1px" align="center">
+<table style="border-collapse: collapse; text-align: center" border="1" align="center">
     <tr style="font-weight: bold">
         <td>ID order</td>
         <td>Order</td>

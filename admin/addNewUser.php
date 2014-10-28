@@ -45,7 +45,7 @@ if(isset($_SESSION['logged_in_admin'])){
                 <tr>
                     <td>Type</td>
                     <td>
-                        <select name="skupina" required="true">
+                        <select name="skupina" required="true"  style="width: 173px">
                         <option selected="selected" value="">--</option>
                         <option value="korisnik">user</option>
                         <option value="admin">admin</option>

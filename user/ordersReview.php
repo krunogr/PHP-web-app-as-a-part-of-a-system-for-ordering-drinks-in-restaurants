@@ -53,7 +53,7 @@ if(isset($_SESSION['logged_in_user'])){
                             include_once '../includes/getOrdersUser.php';
                          }
                          else{
-                            $notification = "Please, insert only username or username, date of and date to!";
+                            $notification = "Please insert ID of order or leave empty for all orders!";
                           }
                 ?>
          <small style='margin-left: 200px; color: red; font-family: Arial; font-size: 15px'><?php echo $notification?></small>

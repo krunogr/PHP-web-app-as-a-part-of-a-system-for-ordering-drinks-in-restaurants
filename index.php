@@ -40,18 +40,16 @@ if (isset($_SESSION['logged_in_user']) or isset($_SESSION['logged_in_admin'])) {
     </head>
     <body style='padding-top: 200px;'>
         <div class="container">
-            <?php if (isset($error)) { ?>
-                <small style="color: #CC0000">
-                    <?php echo $error; ?>
-                </small>
-            <?php } ?>
-
-
             <form action="index.php" method="post">
                 <input type="text" name="username" placeholder="Username"/>
                 <input type="password" name="password" placeholder="Password"/>
                 <input type="submit" value="Login"/>
             </form>
+            <?php if (isset($error)) { ?>
+                <small style="color: #CC0000">
+                    <?php echo $error; ?>
+                </small>
+            <?php } ?>
         </div>
     </body>
 </html>

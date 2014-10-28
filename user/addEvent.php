@@ -61,7 +61,7 @@ if(isset($_SESSION['logged_in_user'])){
                         Description of event
                     </td>
                     <td>
-                        <textarea size="50" name="description_of_event" placeholder="Description of event"  required="true"></textarea>
+                        <textarea size="50" name="description_of_event" placeholder="Description of event"  required="true"   style="width: 173px"></textarea>
                     </td>
                 </tr>
                 <tr>

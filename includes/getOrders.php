@@ -21,8 +21,10 @@ class Orders {
     }
 
 }
+$orders = (new Orders())->fetch();
+if(count($orders)>0){
 ?>
-<table style="border: black solid 1px" align="center">
+<table style="border-collapse: collapse; text-align: center" border="1" align="center">
     <tr style="font-weight: bold">
         <td>ID order</td>
         <td>Order</td>
@@ -32,12 +34,11 @@ class Orders {
     </tr>
 
     <?php
-    $orders = (new Orders())->fetch();
     foreach ($orders as $order) {
         ?>
         <tr>
-            <td><?php echo $order['ID_Narudzbe'] ?></td>
-            <td width="250px"><?php echo $order['Narudzba'] ?></td>
+            <td ><?php echo $order['ID_Narudzbe'] ?></td>
+            <td width="350px"><?php echo $order['Narudzba'] ?></td>
             <td><?php echo $order['ID_Mjesta'] ?></td>
             <td><?php echo $order['Racun_Narudzbe'] ?></td>
             <td><?php echo $order['Vrijeme_zaprimanja_narudzbe'] ?></td>
@@ -46,3 +47,8 @@ class Orders {
     <?php }
     ?>
 </table>
+<?php  }
+else{
+    $notification="No orders for inputed data";
+}
+?>
