@@ -25,4 +25,5 @@ User without admin right can:
  - add a new article.
  - remove an article.
  - add event.
+
 ![Alt text](https://raw.githubusercontent.com/krunogr/PHP-web-app-as-a-part-of-a-system-for-ordering-drinks-in-restaurants/master/assets/screenshots/user_side.JPG "User site of app")
