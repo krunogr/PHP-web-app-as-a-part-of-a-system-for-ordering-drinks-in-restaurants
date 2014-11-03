@@ -8,7 +8,7 @@ First, the user has to make login (first image). Afterward login app checks in M
 
 ![Alt text](https://raw.githubusercontent.com/krunogr/PHP-web-app-as-a-part-of-a-system-for-ordering-drinks-in-restaurants/master/assets/screenshots/login.JPG "Login")
 
-Admin site of app
+### Admin site of app
 User with admin right can:
  - see all users. Searching is possible by username or by type
  - add a new user (with or without admin right)
@@ -17,7 +17,7 @@ User with admin right can:
 
 ![Alt text](https://raw.githubusercontent.com/krunogr/PHP-web-app-as-a-part-of-a-system-for-ordering-drinks-in-restaurants/master/assets/screenshots/admin_site.JPG "Admin site of app")
 
-User site of app
+### User site of app
 User without admin right can:
  - check a new orders. When user select a order on radio button and click Serve the order, the order goes directly to served    orders and it is not anymore in new orders.
  - see all orders with all informations (but not for another users)
